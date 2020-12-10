@@ -48,8 +48,8 @@ abstract class Base(day: Int) {
         case (prev, cur) => prev && cur
       }
 
-  def firstTest(): Boolean = testPart("first")(first)
-  def secondTest(): Boolean = testPart("second")(second)
+  def firstTest: Any = first
+  def secondTest: Any = second
 
   private def printSolution(part: String, solution: Any): Unit = {
     solution match {
@@ -62,10 +62,10 @@ abstract class Base(day: Int) {
   }
 
   def main(args: Array[String]): Unit = {
-    firstTest()
+    testPart("first")(firstTest)
     input = readInput(s"input/day$day.txt")
     printSolution("first", first)
-    secondTest()
+    testPart("second")(secondTest)
     input = readInput(s"input/day$day.txt")
     printSolution("second", second)
   }
